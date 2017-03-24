@@ -1,0 +1,9 @@
+INSTRUCCIONES:
+
+
+- En este folder deberan de guardar primero que nada el Diagrama Entidad Relacion (Imagen JPG || PNG).
+- Tambien deberan de guardar el script de la base de datos para; por el momento SQL Server. 
+
+
+/*************** ESTO LO REALIZARA ANDREA JUNTO CON HERNAN *************************/
+EXITOS!

@@ -1,0 +1,8 @@
+INFORMACION PARA REALIZAR...
+
+- Se debera de crear una interfaz amigable que lleve los siguientes componentes:
+    
+    -* Inicio de sesion (Login)
+    -* Menu (Ingreso de datos,Reportes,Actualizacion de datos, y Salir)
+
+/********* ESTO LO TIENE QUE REALIZAR MARIO *************/
