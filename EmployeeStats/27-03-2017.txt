@@ -1,0 +1,23 @@
+Hola equipo,
+
+Perdonen que no pude asistir el dia de hoy pero me solicitaron en mi trabajo el dia de hoy. Para el dia de hoy estaba revisando
+el diagrama de base de datos que hizo Hernan y me parece muy buena la solucion pero hay que cambiar ciertas cosas como las siguientes:
+
+- Falta una relacion, la relacion de 1 a 1 en las tablas Empleado y Area.
+- No es necesario crear una tabla Identificador para Empleado, solamente se necesita crear tres atributos:
+      cod_empleado de tipo INT que sea la llave primaria y auto incremental, para el SQL Server es asi:
+            cod_empleado INT PRIMARY KEY IDENTITY(1,1);
+      dpi de tipo INT y que sea Unico; que no se pueda repetir... y no nulo asi:
+            DPI INT UNIQUE NOT NULL;
+      pasaporte de tipo VARCHAR(tamaño del codigo del pasaporte) y que sea unico tambien y nulo.
+            pasaporte VARCHAR(tamaño) UNIQUE NULL;
+
+De ahi todo lo demas esta bastante bien.
+
+En lo que quiero que trabaje Hernan es en corregir la base de datos con los cambios que coloque arriba y que vea que atributos pueden
+ser nulos, no nulos, unicos, etc... ademas de que otras constraints se le puede agregar.
+Andrea necesito que junto a Mario, si es que llega, empiecen a hacer la interfaz del programa 
+  -> Login,un logo para el programa; 
+  -> Menu de opciones (ingreso de personal,reportes,asignacion,etc...);
+  
+  EXITOS!
