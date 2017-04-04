@@ -3,7 +3,7 @@ CREATE TABLE Area
     Codigo_Area              VARCHAR (100) NOT NULL ,
     Nombre_Area              VARCHAR (100) NOT NULL ,
     Jefe_Inmediato           VARCHAR (100) NOT NULL ,
-    Id_Area                  INTEGER NOT NULL ,
+    Id_Area                  INTEGER IDENTITY (1,1) NOT NULL ,
     Trabajador_Id_Trabajador INTEGER NOT NULL
   ) ;
 CREATE UNIQUE INDEX Area__IDX ON Area
@@ -16,16 +16,16 @@ ALTER TABLE Area ADD CONSTRAINT Area_PK PRIMARY KEY ( Id_Area ) ;
 
 CREATE TABLE Estado_Civil
   (
-    Codigo_EC INTEGER NOT NULL ,
-    Nombre_EC VARCHAR (100) NOT NULL
+    Codigo_EC INTEGER IDENTITY (1,1) NOT NULL ,
+    Nombre_EC VARCHAR (100) UNIQUE NOT NULL
   ) ;
 ALTER TABLE Estado_Civil ADD CONSTRAINT Estado_Civil_PK PRIMARY KEY ( Codigo_EC ) ;
 
 
 CREATE TABLE Login
   (
-    Id_Login   INTEGER NOT NULL ,
-    Usuario    VARCHAR (100) NOT NULL ,
+    Id_Login   INTEGER IDENTITY (1,1) NOT NULL ,
+    Usuario    VARCHAR (100) UNIQUE NOT NULL ,
     Contraseña VARCHAR (100) NOT NULL
   ) ;
 ALTER TABLE Login ADD CONSTRAINT Login_PK PRIMARY KEY ( Id_Login ) ;
@@ -73,8 +73,8 @@ ALTER TABLE Puesto_Nominal ADD CONSTRAINT Puesto_Nominal_PK PRIMARY KEY ( Codigo
 
 CREATE TABLE Sexo
   (
-    Codigo_Sexo INTEGER NOT NULL ,
-    Nombre_Sexo VARCHAR (100) NOT NULL
+    Codigo_Sexo INTEGER IDENTITY (1,1) NOT NULL ,
+    Nombre_Sexo VARCHAR (100) UNIQUE NOT NULL
   ) ;
 ALTER TABLE Sexo ADD CONSTRAINT Sexo_PK PRIMARY KEY ( Codigo_Sexo ) ;
 
@@ -83,14 +83,14 @@ CREATE TABLE Tipo_Area
   (
     Codigo_TipoArea VARCHAR (100) NOT NULL ,
     Nombre_TipoArea VARCHAR (100) NOT NULL ,
-    Id_TipoArea     INTEGER NOT NULL
+    Id_TipoArea     INTEGER IDENTITY (1,1) NOT NULL
   ) ;
 ALTER TABLE Tipo_Area ADD CONSTRAINT Tipo_Area_PK PRIMARY KEY ( Id_TipoArea ) ;
 
 
 CREATE TABLE Trabajador
   (
-    Id_Trabajador    INTEGER NOT NULL ,
+    Id_Trabajador    INTEGER IDENTITY (1,1) NOT NULL ,
     DPI              VARCHAR (100) NOT NULL ,
     Pasaporte        VARCHAR (100) NOT NULL ,
     Primer_Apellido  VARCHAR (100) NOT NULL ,
@@ -108,8 +108,6 @@ CREATE TABLE Trabajador
     Funciones        VARCHAR (100) ,
     Especializacion  VARCHAR (100) ,
     Email            VARCHAR (100),
-    --  ERROR: VARCHAR2 size not specified
-    
     Fecha_Ingreso              DATE NOT NULL ,
     Tel_Oficina_Ext            VARCHAR (100) NOT NULL ,
     Puesto_Funcional_Codigo_PF INTEGER NOT NULL ,
@@ -130,7 +128,6 @@ ALTER TABLE Trabajador ADD CONSTRAINT Trabajador_PK PRIMARY KEY ( Id_Trabajador 
 
 CREATE TABLE Trabajador_Nacionalidad
   (
-    --  ERROR: Column name length exceeds maximum allowed length(30)
     Nacionalidad_Codigo_Nacionalidad INTEGER NOT NULL ,
     Trabajador_Id_Trabajador         INTEGER NOT NULL
   ) ;
