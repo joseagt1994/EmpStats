@@ -18,9 +18,9 @@ INSERT INTO Area (Codigo_Area,Nombre_Area,Jefe_Inmediato) VALUES ('4.1.48.1.02.'
 INSERT INTO Area (Codigo_Area,Nombre_Area,Jefe_Inmediato) VALUES ('4.1.48.1.03.','Cordinadora de Parqueos','Ochatea Galindo, Harry');
 INSERT INTO Area (Codigo_Area,Nombre_Area,Jefe_Inmediato) VALUES ('4.1.48.1.04.','Depto de Vigilancia','Medrano, Leonel Eleazar');
 INSERT INTO Area (Codigo_Area,Nombre_Area,Jefe_Inmediato) VALUES ('4.1.48.1.05.','Jefatura','Milian');
-INSERT INTO Area (Codigo_Area,Nombre_Area,Jefe_Inmediato) VALUES ('4.1.48.1.06.','Diseño Urbaniz y Construc','Breitner, Roely');
-INSERT INTO Area (Codigo_Area,Nombre_Area,Jefe_Inmediato) VALUES ('4.3.48.2.04.','Mantenimiento Gerenal Edificios Universitarios','falta');
-INSERT INTO Area (Codigo_Area,Nombre_Area,Jefe_Inmediato) VALUES ('4.3.48.2.07.','Plan General de Remodelaciones USAC','falta');
+INSERT INTO Area (Codigo_Area,Nombre_Area,Jefe_Inmediato) VALUES ('4.1.48.1.06.','Diseño Urbaniz y Construc','Breitner Gonzales, Roely');
+INSERT INTO Area (Codigo_Area,Nombre_Area,Jefe_Inmediato) VALUES ('4.3.48.2.04.','Mantenimiento Gerenal Edificios Universitarios','Juarez Cardenas, Manuel Humberto');
+INSERT INTO Area (Codigo_Area,Nombre_Area,Jefe_Inmediato) VALUES ('4.3.48.2.07.','Plan General de Remodelaciones USAC','Breitner Gonzales, Roely');
 
 CREATE TABLE Estado_Civil
   (
