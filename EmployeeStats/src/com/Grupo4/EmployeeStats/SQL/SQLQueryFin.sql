@@ -419,7 +419,6 @@ CREATE TABLE Trabajador
     Estado_Civil_Codigo_EC     INTEGER NOT NULL ,
     Sexo_Codigo_Sexo           INTEGER NOT NULL ,
     Area_Id_Area               INTEGER  NULL ,
-    Area_Id_Area1              INTEGER NOT NULL ,
     Tipo_Area_Id_TipoArea      INTEGER NOT NULL
   ) ;
 CREATE UNIQUE INDEX Trabajador__IDX ON Trabajador
@@ -455,8 +454,6 @@ CREATE TABLE Trabajador_Proyecto
 ALTER TABLE Area ADD CONSTRAINT Area_Trabajador_FK FOREIGN KEY ( Trabajador_Id_Trabajador ) REFERENCES Trabajador ( Id_Trabajador ) ;
 
 ALTER TABLE Trabajador ADD CONSTRAINT Trabajador_Area_FK FOREIGN KEY ( Area_Id_Area ) REFERENCES Area ( Id_Area ) ;
-
-ALTER TABLE Trabajador ADD CONSTRAINT Trabajador_Area_FKv1 FOREIGN KEY ( Area_Id_Area1 ) REFERENCES Area ( Id_Area ) ;
 
 ALTER TABLE Trabajador ADD CONSTRAINT Trabajador_Estado_Civil_FK FOREIGN KEY ( Estado_Civil_Codigo_EC ) REFERENCES Estado_Civil ( Codigo_EC ) ;
 
