@@ -378,19 +378,32 @@ CREATE TABLE Sexo
   ) ;
 ALTER TABLE Sexo ADD CONSTRAINT Sexo_PK PRIMARY KEY ( Codigo_Sexo ) ;
 
-Insert INTO Sexo Values('Masculino');
-Insert INTO Sexo Values('Femenino');
+INSERT INTO Sexo Values('Masculino');
+INSERT INTO Sexo Values('Femenino');
 
-CREATE TABLE Tipo_Area
+CREATE TABLE Estudio
+(
+	No_Estudio 		INTEGER IDENTITY (1,1) NOT NULL ,
+	Nombre_Estudio	VARCHAR (100) UNIQUE NOT NULL
+);
+ALTER TABLE Estudio ADD CONSTRAINT Estudio_PK PRIMARY KEY (No_Estudio) ;
+
+INSERT INTO Estudio VALUES('Ninugno');
+INSERT INTO Estudio VALUES('Primaria');
+INSERT INTO Estudio VALUES('Secundaria');
+INSERT INTO Estudio VALUES('Diversificado');
+INSERT INTO Estudio VALUES('Titulo Universitario');
+
+CREATE TABLE Renglon
   (
-    Codigo_TipoArea VARCHAR (100) NOT NULL ,
-    Nombre_TipoArea VARCHAR (100) NOT NULL ,
-    Id_TipoArea     INTEGER IDENTITY (1,1) NOT NULL
+    Codigo_Renglon VARCHAR (100) NOT NULL ,
+    Nombre_Renglon VARCHAR (100) NOT NULL ,
+    Id_Renglon     INTEGER IDENTITY (1,1) NOT NULL
   ) ;
-ALTER TABLE Tipo_Area ADD CONSTRAINT Tipo_Area_PK PRIMARY KEY ( Id_TipoArea ) ;
+ALTER TABLE Renglon ADD CONSTRAINT Tipo_Area_PK PRIMARY KEY ( Id_Renglon ) ;
 
-INSERT INTO Tipo_Area (Codigo_TipoArea,Nombre_TipoArea) VALUES('0.11','Personal Permanente');
-INSERT INTO Tipo_Area (Codigo_TipoArea,Nombre_TipoArea) VALUES('0.22','Personal por Contrato');
+INSERT INTO Renglon (Codigo_Renglon,Nombre_Renglon) VALUES('0.11','Personal Permanente');
+INSERT INTO Renglon (Codigo_Renglon,Nombre_Renglon) VALUES('0.22','Personal por Contrato');
 
 CREATE TABLE Trabajador
   (
@@ -404,6 +417,8 @@ CREATE TABLE Trabajador
     Fecha_Nacimiento DATE NOT NULL ,
     Ciudad           VARCHAR (100) NOT NULL ,
     No_Colegiado     VARCHAR (100) ,
+	No_IGSS			 VARCHAR (100) ,
+	Reg_Personal	 VARCHAR (100) ,	
     Direccion        VARCHAR (100) NOT NULL ,
     Tel_Residencia   VARCHAR (100) NOT NULL ,
     Tel_Celular      VARCHAR (100) ,
@@ -418,8 +433,9 @@ CREATE TABLE Trabajador
     Puesto_Nominal_Codigo_PN   INTEGER NOT NULL ,
     Estado_Civil_Codigo_EC     INTEGER NOT NULL ,
     Sexo_Codigo_Sexo           INTEGER NOT NULL ,
+	Estudio_No_Estudio		   INTEGER NOT NULL ,
     Area_Id_Area               INTEGER  NULL ,
-    Tipo_Area_Id_TipoArea      INTEGER NOT NULL
+    Tipo_Area_Id_Renglon      INTEGER NOT NULL
   ) ;
 CREATE UNIQUE INDEX Trabajador__IDX ON Trabajador
   (
@@ -481,4 +497,6 @@ ALTER TABLE Trabajador ADD CONSTRAINT Trabajador_Puesto_Nominal_FK FOREIGN KEY (
 
 ALTER TABLE Trabajador ADD CONSTRAINT Trabajador_Sexo_FK FOREIGN KEY ( Sexo_Codigo_Sexo ) REFERENCES Sexo ( Codigo_Sexo ) ;
 
-ALTER TABLE Trabajador ADD CONSTRAINT Trabajador_Tipo_Area_FK FOREIGN KEY ( Tipo_Area_Id_TipoArea ) REFERENCES Tipo_Area ( Id_TipoArea ) ;
+ALTER TABLE Trabajador ADD CONSTRAINT Trabajador_Estudio_FK FOREIGN KEY (Estudio_No_Estudio) REFERENCES Estudio (No_Estudio) ;
+
+ALTER TABLE Trabajador ADD CONSTRAINT Trabajador_Tipo_Area_FK FOREIGN KEY ( Tipo_Area_Id_Renglon ) REFERENCES Renglon ( Id_Renglon ) ;
